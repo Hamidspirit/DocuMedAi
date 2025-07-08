@@ -1,0 +1,22 @@
+Alright what will this project be?
+
+i think of a microservice that can analyse medical reports.
+this analysis will extract relevant data.
+this data will be used to come up with possible next steps.
+there can be a visualizer for patients data.
+
+
+this microservice will be small enough that we can work on it and impresive enough to show
+we have learned something.
+it can also be used in subsequent project to expand on health care.
+
+yasin will mostly do the backend and our API.
+hamid will mostly do the ml service.
+hamid will work on a web-scraper.
+front will be done by both.
+we should document what we do and remember to write comments in our code.
+
+backend will be written using C# and ASP.net.
+ml service will use FastAPI to expose the AI backend as an API.
+
+
