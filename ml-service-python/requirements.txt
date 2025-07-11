@@ -1,0 +1,6 @@
+pip install grpcio grpcio-tools
+pip install fasttext # for language detection (supports Farsi)
+pip install hazm     # for Persian text processing
+pip install pytesseract # for OCR (Farsi supported with traineddata)
+pip install opencv-python numpy pillow
+pip install torch transformers
