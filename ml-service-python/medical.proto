@@ -1,17 +1,14 @@
 syntax = "proto3";
 
-service MedicalAnalyzer {
-  rpc AnalyzeMedicalReport (ReportRequest) returns (ReportResponse);
+service OCRService {
+  rpc ExtractText (OCRRequest) returns (OCRResponse);
 }
 
-message ReportRequest {
-  string patient_id = 1;
-  string report_text = 2;
-  string language = 3;
+message OCRRequest {
+  bytes file_bytes = 1;
+  string file_type = 2; // "pdf" or "image"
 }
 
-message ReportResponse {
-  string summary = 1;
-  repeated string suggested_diagnoses = 2;
-  repeated string recommended_specialists = 3;
+message OCRResponse {
+  string text = 1;
 }

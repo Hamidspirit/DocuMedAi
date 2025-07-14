@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class MedicalAnalyzerStub(object):
+class OCRServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -34,43 +34,43 @@ class MedicalAnalyzerStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.AnalyzeMedicalReport = channel.unary_unary(
-                '/MedicalAnalyzer/AnalyzeMedicalReport',
-                request_serializer=medical__pb2.ReportRequest.SerializeToString,
-                response_deserializer=medical__pb2.ReportResponse.FromString,
+        self.ExtractText = channel.unary_unary(
+                '/OCRService/ExtractText',
+                request_serializer=medical__pb2.OCRRequest.SerializeToString,
+                response_deserializer=medical__pb2.OCRResponse.FromString,
                 _registered_method=True)
 
 
-class MedicalAnalyzerServicer(object):
+class OCRServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def AnalyzeMedicalReport(self, request, context):
+    def ExtractText(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_MedicalAnalyzerServicer_to_server(servicer, server):
+def add_OCRServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'AnalyzeMedicalReport': grpc.unary_unary_rpc_method_handler(
-                    servicer.AnalyzeMedicalReport,
-                    request_deserializer=medical__pb2.ReportRequest.FromString,
-                    response_serializer=medical__pb2.ReportResponse.SerializeToString,
+            'ExtractText': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExtractText,
+                    request_deserializer=medical__pb2.OCRRequest.FromString,
+                    response_serializer=medical__pb2.OCRResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'MedicalAnalyzer', rpc_method_handlers)
+            'OCRService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('MedicalAnalyzer', rpc_method_handlers)
+    server.add_registered_method_handlers('OCRService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class MedicalAnalyzer(object):
+class OCRService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def AnalyzeMedicalReport(request,
+    def ExtractText(request,
             target,
             options=(),
             channel_credentials=None,
@@ -83,9 +83,9 @@ class MedicalAnalyzer(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/MedicalAnalyzer/AnalyzeMedicalReport',
-            medical__pb2.ReportRequest.SerializeToString,
-            medical__pb2.ReportResponse.FromString,
+            '/OCRService/ExtractText',
+            medical__pb2.OCRRequest.SerializeToString,
+            medical__pb2.OCRResponse.FromString,
             options,
             channel_credentials,
             insecure,
