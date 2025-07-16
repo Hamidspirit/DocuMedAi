@@ -2,10 +2,11 @@ import grpc
 from concurrent import futures
 import medical_pb2
 import medical_pb2_grpc
-import pytesseract
 from pdf2image import convert_from_bytes
 from PIL import Image
 import io
+
+from ocr import extract_text
 
 
 class OCRService(medical_pb2_grpc.OCRServiceServicer):
@@ -18,10 +19,10 @@ class OCRService(medical_pb2_grpc.OCRServiceServicer):
                 images = convert_from_bytes(file_bytes)
                 text = ""
                 for img in images:
-                    text += pytesseract.image_to_string(img) + "\n"
+                    text += extract_text(img) + "\n"
             elif file_type == "image":
                 image = Image.open(io.BytesIO(file_bytes))
-                text = pytesseract.image_to_string(image)
+                text = extract_text(image)
             else:
                 context.set_details("Unsupported file type.")
                 context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
