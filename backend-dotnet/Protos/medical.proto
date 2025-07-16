@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service OCRService {
+  rpc ExtractText (OCRRequest) returns (OCRResponse);
+}
+
+message OCRRequest {
+  bytes file_bytes = 1;
+  string file_type = 2; // "pdf" or "image"
+}
+
+message OCRResponse {
+  string text = 1;
+}

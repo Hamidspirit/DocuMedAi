@@ -32,3 +32,43 @@ dist/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Build artifacts
+bin/
+obj/
+out/
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Secrets or local settings
+appsettings.Development.json
+secrets.json
+
+# ASP.NET Core environment files
+.env
+
+# Proto-generated code (if built automatically)
+**/*.pb.cs
+**/*.Grpc.cs
+
+# OS-generated
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
